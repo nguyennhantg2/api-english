@@ -61,25 +61,27 @@ const Home = (props) => {
                     :
                     isLoading || data.length < 1 ?
                         <span>Loading...</span> :
-                        <div>
+                        <div className="body-content">
                             {console.log("hahalo", data)}
                             <span className="text-success">{data?.[0].word}</span>
-                            <h3>{data.length > 0 ? data[0].meanings.map((el, index) => <i key={index}>{el.partOfSpeech}, </i>) : null}</h3>
-                            <ul>{
+                            <h3>{data.length > 0 ? data[0].meanings.map((el, index) => <i dataIndex={index}>{el.partOfSpeech}, </i>) : null}</h3>
+                            <span style={{display: "flex"}}>{
                                 data.length > 0 ? data[0].phonetics.map((value, index) => {
                                     return (
-                                        <li key="index" style={{ display: "flex", }}>
-                                            {value.text ? value.text : null}
-
+                                        <span key="index" style={{ display: "flex", }}>
                                             {value.audio ?
                                                 <button key={index} onClick={() => startAudio(value.audio)}>ok</button>
-                                                : null
+                                                : "[]"
                                             }
-                                        </li>
+                                            {value.text ? value.text : "//"}
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                        </span>
                                     )
                                 }) : null
                             }
-                            </ul>
+                            </span>
+                            <span className="text-example">Example</span>
+                            <ul style={{textAlign: 'left'}}>{data.length > 0 ? data[0].meanings.map((el, index) => <li className={index} key={index}>{el.definitions[0].definition}</li>) : null}</ul>
                         </div>
             }
 

@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-align: justify;
 }
 
 code {
@@ -22,5 +23,17 @@ code {
   font-size: 20px;
   font-weight: bold;
   color: green;
+}
+
+.body-content{
+  text-align: justify;
+  padding: 20px;
+}
+
+.text-example{
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(23, 23, 155);
 }
 
